@@ -187,8 +187,7 @@ if predict:
             cleaned = clean_text(review)
             vec = vectorizer.transform([cleaned])
             prediction = model.predict(vec)[0]
-            proba = model.predict_proba(vec)[0]
-            confidence = max(proba) * 100
+            
 
         if prediction == 1:
             label = "😊 Positive Review"
@@ -214,3 +213,4 @@ st.markdown(
     "<div class='footer'>Built with 💙 using Machine Learning & Streamlit</div>",
     unsafe_allow_html=True
 )
+
