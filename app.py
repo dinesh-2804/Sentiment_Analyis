@@ -145,13 +145,7 @@ body {
     border-left: 6px solid #ef4444;
 }
 
-/* CONFIDENCE */
-.confidence {
-    text-align: center;
-    margin-top: 10px;
-    font-weight: 600;
-    color: #7dd3fc;
-}
+
 
 /* FOOTER */
 .footer {
@@ -187,7 +181,7 @@ if predict:
             cleaned = clean_text(review)
             vec = vectorizer.transform([cleaned])
             prediction = model.predict(vec)[0]
-            confidence = max(proba) * 100
+            
             
 
         if prediction == 1:
@@ -202,11 +196,7 @@ if predict:
             unsafe_allow_html=True
         )
 
-        st.progress(int(confidence))
-        st.markdown(
-            f"<div class='confidence'>Confidence: {confidence:.2f}%</div>",
-            unsafe_allow_html=True
-        )
+        
 
 st.markdown("</div>", unsafe_allow_html=True)
 
@@ -214,6 +204,7 @@ st.markdown(
     "<div class='footer'>Built with 💙 using Machine Learning & Streamlit</div>",
     unsafe_allow_html=True
 )
+
 
 
 
